@@ -11,9 +11,11 @@ In this project, we aim to build a **metadata-driven data pipeline** to transfor
 ## 🚀 Technologies Used
 
 - **Azure Databricks** – For data processing and transformation using Spark
-- **Azure Data Factory** – For orchestrating and automating pipelines
+- **Azure Data Factory** – For Ingestion
 - **Azure Data Lake Storage** – For storing flat files (Claims data)
 - **Azure SQL Database** – For storing EMR (Electronic Medical Records) data
+- **Azure Storage Acoount** - For storing the data
+- **Azure Key Vault** - For storing important passwords and credentials
 - **Public APIs** – For fetching external data (NPI and ICD codes)
 
 ---
@@ -94,6 +96,40 @@ The final output of the data pipeline will be:
 - ✅ Scalable design for onboarding new hospitals or data sources
 
 ---
+
+## Medallion Architecture
+
+ttadlsdev -> Storage account (Adlsgen2 )
+EMR (SQL DB)
+Claims (Flat files)
+Codes (Parquet files)
+
+-> Containers 
+
+- landing          -> bronze            -> silver           -> gold
+
+
+   flat file        -> parquet files     -> Delta Tables     -> Delta Tables
+
+-> bronze : parquet format (source of truth)
+
+
+-> silver : data cleaning,enrich,CDM (Common data module),SCD2
+
+
+-> gold   : aggregation,Fact table and Dimension table
+
+
+# End Users
+Gold -> Business Users
+
+
+Silver -> Data Scientist , Machine Learning and Data Analysts
+
+
+Bronze -> Data Engineer
+
+
 
 
 

@@ -2,7 +2,7 @@
 
 Pipeline is made up of activities
 
-- **Look Up activity** : Will read the config file (i.e config container)
+- **Look Up activity** : Will read the config file (i.e config container) (Used to read a file or a table)
 
 **Steps**:
 
@@ -24,5 +24,8 @@ source - Azure SQL DB
 
 7. If load type is incremental then we will have a LOok Up activity do the below steps
 
-- check the audit table
-- 
+- check the audit table 
+- and the get date of last time it is loaded and we take all the data on and after that data and update the parquet file  and then we finally update the audit table
+
+8. Finally run the pipeline to see the changes in the audit table and see if the sql data is transfered from the Azure SQL DB to Bronze layer in containers of Azure storage account
+  

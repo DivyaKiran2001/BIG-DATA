@@ -12,6 +12,16 @@ Pipeline is made up of activities
 
 3. If the file exists (ex : encounters.parquet file) is present in bronze folder then we move into the archive folder present in bronze
 
+**source**:
+container - bronze
+file_path - hosa
+file_name - encounters
+
+**target**:
+container - bronze
+file_path - hosa / archive / year / month / day
+file_name - encounters
+
 4. Take the data from Azure SQL DB and put it in Bronze container
 
 source - Azure sql DB

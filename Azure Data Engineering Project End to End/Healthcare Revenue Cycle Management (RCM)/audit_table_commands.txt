@@ -1,0 +1,20 @@
+%sql
+DROP TABLE IF EXISTS audit.load_logs
+
+
+
+%sql
+CREATE SCHEMA IF NOT EXISTS audit;
+
+CREATE TABLE IF NOT EXISTS audit.load_logs (
+    id BIGINT GENERATED ALWAYS AS IDENTITY,
+    data_source STRING,
+    tablename STRING,
+    numberofrowscopied INT,
+    watermarkcolumnname STRING,
+    loaddate TIMESTAMP
+);
+
+%sql
+select * from audit.load_logs
+-- where data_source = 'hos-a' and tablename = 'dbo.patients'

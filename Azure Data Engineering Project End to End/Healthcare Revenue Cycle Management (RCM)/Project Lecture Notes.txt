@@ -1,0 +1,55 @@
+As part of RCM we have 2 main aspects
+
+- Accounts Receivable (AR)
+- Accounts Payable
+
+
+Patient paying is often a risk
+
+scenarios when patient has to pay
+
+Low Insurance - these insurance providers put most of the burden on patients..
+
+Private Clinics
+Dental treatments
+Deductibles
+
+2 objectives for AR
+- Bring cash
+- also minimize the collection period
+
+the probability of collecting your full amount decreases with time..
+
+- 93% of money due 30 days old...
+- 85% of money due 60 days old...
+- 73% of money due 90 days old...
+
+KPI to measure AR and set benchmarks...
+
+1. AR > 90 days...
+
+200K USD older then 90 days
+
+1 million USD
+
+200k / 1 million = 20%
+
+
+2. Days in AR
+
+1 million USD in 100 days
+
+per day 10000 USD
+
+400K USD AR
+
+40 DAY
+
+45 Days..
+
+
+what do we have to do as a Data Engineering
+
+we will have data in various Sources
+
+we need to create a pipeline, the result of this pipeline will be fact tables and dimension tables, will help the reporting team to generate the KPI

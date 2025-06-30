@@ -77,6 +77,31 @@ when we want to preserve historical data.
 - Delta Lake
 
  Now we will create a new Key Vault(New one) linked service in part 2 and Databricks linked service(New one) also
+ => Now previously we have hardcoded the secret values in linked service now we will remove them and replace with **Azure Key Vault**
+
+ **How to implement active and inactive flag in config.csv**:
+
+1. Go to azure data factory and launch studio
+2. From config.csv if the is_active=0 do not execute but if it is 1 then execute the (if else pipeline with load as full or incremental disable the previous if else piepline and copy that in this)
+3. And we have made the pipeline from s by removing the Autoincrement from the audit table and unchecking the Sequential variable in the pipeline
+4. We created a linked service for azure key vault
+5. We created one more linked service for databricks
+
+**Getting remaining datasets to BRonzr layer**:
+
+- claims and the NPI,ICD and CPT
+- Claims and CPT (landing -> bronze)
+- NPI and ICD codes (Pubilc api -> bronze)
+
+**How to get Claims and CPT (landing -> bronze)**:
+=> Go to the databricks folder and select the folder API extracts there will be two ipynb files to extract ICD and NPI codes see those files to mount the data to the bronze folder
+=> NPI code starts with 1 but in our datasets its different
+=> Data extracted from the API's is very less,so when you make join you may see lot of nulls
+
+**How to place Claims and CPT (landing -> bronze)**:
+=> 
+
+ 
 
 
 

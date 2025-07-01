@@ -87,7 +87,7 @@ when we want to preserve historical data.
 4. We created a linked service for azure key vault
 5. We created one more linked service for databricks
 
-**Getting remaining datasets to BRonzr layer**:
+**Getting remaining datasets to Bronze layer**:
 
 - claims and the NPI,ICD and CPT
 - Claims and CPT (landing -> bronze)
@@ -98,9 +98,13 @@ when we want to preserve historical data.
 => NPI code starts with 1 but in our datasets its different
 => Data extracted from the API's is very less,so when you make join you may see lot of nulls
 
-**How to place Claims and CPT (landing -> bronze)**:
-=> 
+**How to place the claims data from landing -> bronze**:
 
+=>  Generally the claims csv files are uploaded in the format of csv we have to place them in bronze folder
+=> for the existing files we have added a new column data source by checking the hospital type and after that we place them in the bronze folder
+=> we will create two separate folders in **Bronze** folder named **claims** and **cpt_codes** from the same claims csv files uploaded in the **landing** folder
+
+**Now we have all the data in the Bronze folder i.e from API's,EMR and claims**
  
 
 

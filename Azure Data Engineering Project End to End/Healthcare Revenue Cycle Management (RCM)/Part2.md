@@ -87,7 +87,7 @@ when we want to preserve historical data.
 4. We created a linked service for azure key vault
 5. We created one more linked service for databricks
 
-**Getting remaining datasets to Bronze layer**:
+**Step 1(Continuation) : Getting remaining datasets to Bronze layer**:
 
 - claims and the NPI,ICD and CPT
 - Claims and CPT (landing -> bronze)
@@ -105,6 +105,11 @@ when we want to preserve historical data.
 => we will create two separate folders in **Bronze** folder named **claims** and **cpt_codes** from the same claims csv files uploaded in the **landing** folder
 
 **Now we have all the data in the Bronze folder i.e from API's,EMR and claims**
+
+**Step2 : Bronze to silver**:
+
+
+
  
 
 

@@ -107,6 +107,7 @@ when we want to preserve historical data.
 **Now we have all the data in the Bronze folder i.e from API's,EMR and claims**
 
 **Step2 : Bronze to silver**:
+=> We will Full load the files Departments_F.py and Providers.py 
 
 
 

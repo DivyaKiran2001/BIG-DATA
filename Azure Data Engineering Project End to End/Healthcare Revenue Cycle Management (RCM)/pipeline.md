@@ -17,13 +17,17 @@ Will read the config file (i.e config container) (Used to read a file or a table
 **source**:
 
 container - bronze
+
 file_path - hosa
+
 file_name - encounters
 
 **target**:
 
 container - bronze
+
 file_path - hosa / archive / year / month / day
+
 file_name - encounters
 
 4. Take the data from Azure SQL DB and put it in Bronze container

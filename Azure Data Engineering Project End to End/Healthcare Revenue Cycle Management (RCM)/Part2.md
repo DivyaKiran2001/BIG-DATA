@@ -107,7 +107,40 @@ when we want to preserve historical data.
 **Now we have all the data in the Bronze folder i.e from API's,EMR and claims**
 
 **Step2 : Bronze to silver**:
-=> We will Full load the files Departments_F.py and Providers.py 
+=> We will Full load the files for the fixed data like **Departments_F.py and Providers_F.py** that were there in the Silver folder
+=> **EMR Data**:
+  - Patients (SCD2)
+  - Providers (full load i.e complete refresh)
+  - Department (full load i.e complete refresh)
+  - Transactions (SCD2)
+  - Encounters (SCD2)
+=> **Ex:** Providers_F.py
+
+ from pyspark.sql import SparkSession, functions as f
+
+#Reading Hospital A departments data 
+df_hosa=spark.read.parquet("/mnt/bronze/hosa/departments")
+
+#Reading Hospital B departments data 
+df_hosb=spark.read.parquet("/mnt/bronze/hosb/departments")
+
+#union two departments dataframes
+df_merged = df_hosa.unionByName(df_hosb)
+
+#Create the dept_id column and 
+df_merged = df_merged.withColumn("SRC_Dept_id",f.col(""deptid") \
+.withColumn("Dept_id",f.concat(f.col("deptid"),f.lit('-'),
+f.col("datasource")))\
+.drop("deptid")
+
+- We will read the mounted data for departments and providers and we will create a Temporary view
+- And then we will create the table by replacing some columns and insert the mounted department/Providers data into the newly created table
+
+=> Now we will see what to do for changing data(**SCD2**) like **Patient.py etc..** (since patient data will be changed concurrently)
+- For Patients we have to implement SCD2 and CDM(Common Data Module)
+- If **is_quarantied=true means Bad Record**
+
+  else **is_quarantied=false means Good Record**
 
 
 

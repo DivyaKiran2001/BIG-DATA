@@ -140,7 +140,7 @@ f.col("datasource")))\
 - For Patients we have to implement SCD2 and CDM(Common Data Module)
 - If **is_quarantied=true means Bad Record**
 
-  else **is_quarantied=false means Good Record**
+  else **is_quarantied=false means Good Record** 
 
 
 
